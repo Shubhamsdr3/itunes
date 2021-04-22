@@ -3,9 +3,12 @@ package com.example.itunes
 import android.app.Application
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.example.itunes.network.ApiService
+import com.example.itunes.util.ReleaseTree
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import timber.log.Timber
+import timber.log.Timber.DebugTree
 
 class App: Application() {
 
@@ -23,6 +26,11 @@ class App: Application() {
     override fun onCreate() {
         super.onCreate()
         application = this
+        if (BuildConfig.DEBUG) {
+            Timber.plant(DebugTree())
+        } else {
+            Timber.plant(ReleaseTree())
+        }
     }
 
     private fun okHttpClient() =

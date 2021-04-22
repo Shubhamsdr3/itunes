@@ -32,7 +32,7 @@ class VideoListViewModel(private val getVideosUseCase: GetVideosUseCase, private
 
     fun saveToDatabase(ituneDto: ItuneDto) {
         viewModelScope.launch {
-            appDatabase.videoItemDao().insertVideoDetail(ituneDto)
+//            appDatabase.videoItemDao().insertVideoDetail(ituneDto) //FIXME: SHUBHAM
         }
     }
 }

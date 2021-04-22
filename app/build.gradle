@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.itunes"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -80,4 +80,9 @@ dependencies {
     annotationProcessor 'androidx.room:room-compiler:2.2.6'
     implementation "androidx.room:room-ktx:2.2.6"
     kapt 'androidx.room:room-compiler:2.2.6'
+
+    //timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    implementation 'com.github.Shubhamsdr3:timertextview:0.1.5'
 }

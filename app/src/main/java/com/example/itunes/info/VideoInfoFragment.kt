@@ -1,5 +1,6 @@
 package com.example.itunes.info
 
+import android.media.MediaPlayer
 import android.view.LayoutInflater
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
@@ -13,10 +14,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 @ExperimentalCoroutinesApi
 class VideoInfoFragment : IBaseFragment<FragmentVideoInfoBinding, VideoInfoViewModel>() {
 
-    override val viewModel: VideoInfoViewModel by lazy {
-        ViewModelProvider(this).get(VideoInfoViewModel::class.java)
-    }
-
     companion object {
 
         private const val VIDEO_INFO = "video_info"
@@ -28,6 +25,12 @@ class VideoInfoFragment : IBaseFragment<FragmentVideoInfoBinding, VideoInfoViewM
                 )
             }
         }
+    }
+
+    private var mediaPlayer: MediaPlayer? = null
+
+    override val viewModel: VideoInfoViewModel by lazy {
+        ViewModelProvider(this).get(VideoInfoViewModel::class.java)
     }
 
     private val videoDetail: ItuneDto by lazy {
@@ -46,8 +49,21 @@ class VideoInfoFragment : IBaseFragment<FragmentVideoInfoBinding, VideoInfoViewM
     }
 
     override fun setupObserver() {
-        viewModel.videoDetail.observe(this, Observer {
+        mediaPlayer = MediaPlayer().apply {
+            setDataSource(videoDetail.previewUrl)
+            prepareAsync()
+            setOnPreparedListener {
+                start()
+            }
+        }
+    }
 
-        })
+    override fun onPause() {
+        super.onPause()
+        mediaPlayer?.apply {
+            stop()
+            release()
+        }
+        mediaPlayer = null
     }
 }
