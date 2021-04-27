@@ -22,50 +22,50 @@ data class ItuneDto(
 
         @SerializedName("wrapperType")
         @ColumnInfo(name = "wrapperType", defaultValue = "")
-        val wrapperType: String = "",
+        val wrapperType: String? = null,
 
         @SerializedName("kind")
         @ColumnInfo(name = "kind", defaultValue = "")
-        val kind: String = "",
+        val kind: String? = null,
 
         @SerializedName("artistId")
         @ColumnInfo(name = "artistId", defaultValue = "")
-        val artistId: Long,
+        val artistId: Long? = null,
 
         @SerializedName("trackId")
         @ColumnInfo(name = "trackId", defaultValue = "")
-        val trackId: Long,
+        val trackId: Long? = null,
 
         @SerializedName("artistName")
         @ColumnInfo(name = "artistName", defaultValue = "")
-        val artistName: String = "",
+        val artistName: String? = null ,
 
         @SerializedName("collectionName")
         @ColumnInfo(name = "collectionName", defaultValue = "")
-        val collectionName: String = "",
+        val collectionName: String? = null,
 
         @SerializedName("trackName")
         @ColumnInfo(name = "trackName", defaultValue = "")
-        val trackName: String = "",
+        val trackName: String? = null,
 
         @SerializedName("collectionPrice")
         @ColumnInfo(name = "collectionPrice", defaultValue = "")
-        val collectionPrice: String = "",
+        val collectionPrice: String? = null,
 
         @SerializedName("releaseDate")
         @ColumnInfo(name = "releaseDate", defaultValue = "")
-        val releaseDate: String = "",
+        val releaseDate: String? = null,
 
         @SerializedName("collectionCensoredName")
         @ColumnInfo(name = "collectionCensoredName", defaultValue = "")
-        val collectionCensoredName: String = "",
+        val collectionCensoredName: String? = null,
 
         @SerializedName("artworkUrl100")
         @ColumnInfo(name = "artworkUrl100", defaultValue = "")
-        val previewImage: String = "",
+        val previewImage: String? = null,
 
         @SerializedName("previewUrl")
         @ColumnInfo(name = "previewUrl", defaultValue = "")
-        val previewUrl: String = ""
+        val previewUrl: String? = null
 
 ): Serializable

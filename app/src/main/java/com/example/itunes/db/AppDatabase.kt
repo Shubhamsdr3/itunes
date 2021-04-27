@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.itunes.data.ItuneDto
 import com.example.itunes.util.AppConstants
 
-@Database(entities = [ItuneDto::class], version = 1, exportSchema = false)
+@Database(entities = [ItuneDto::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun videoItemDao(): VideoItemDao

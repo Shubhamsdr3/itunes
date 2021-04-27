@@ -1,9 +1,10 @@
 package com.example.itunes.info
 
 import android.media.MediaPlayer
+import android.os.Build
 import android.view.LayoutInflater
+import androidx.annotation.RequiresApi
 import androidx.core.os.bundleOf
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.itunes.base.IBaseFragment
@@ -41,6 +42,7 @@ class VideoInfoFragment : IBaseFragment<FragmentVideoInfoBinding, VideoInfoViewM
         return FragmentVideoInfoBinding.inflate(inflater)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun setupView() {
         binding.videoInfoTitle.text = videoDetail.trackName
         binding.videoInfoSubtitle.text = videoDetail.artistName
